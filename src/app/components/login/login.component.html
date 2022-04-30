@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="main">
+    
+<div class="d-flex flex-row justify-content-center" style="width: 100vw;">
+    <div  class="d-flex flex-column justify-content-center" style="height: 100vh;">
+        <div class="card-item">
+           <div class="text-center">
+            <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
+        </div>
+        <div class="text-center">
+            <h4>Welcome</h4>
+        </div>
+        <p style="color: lightslategray">
+            Please enter your login details</p>
+        <form [formGroup]="emailForm" (ngSubmit)="onClick()">
+            <div class="form-group">
+                <input type="email" id="eamil" placeholder="Email" class="form-control" formControlName="email"
+                    name="email" />
+                    <div class="alert alert-danger" *ngIf="emailForm.get('email').hasError('required') && emailForm.get('email').dirty">PLease enter email</div>
+            </div>
+            <br>
+            <input type="submit" class="btn btn-primary"   value="send code" name="">
+        </form>
+        <br>
+        <form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="code" id="code" placeholder="code" class="form-control" formControlName="code"
+                    name="code" />
+                    <div class="alert alert-danger" *ngIf="codeForm.get('code').hasError('required') && codeForm.get('code').dirty">PLease enter code</div>
+            </div>
+            <br>
+            <input type="submit" class="btn btn-danger"   value="Verify" name="">
+        </form>
+        
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <app-footer></app-footer>
+            
+            
+        
+    
